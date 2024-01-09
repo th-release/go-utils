@@ -1,4 +1,4 @@
-module github.com/th-release/utils/go
+module github.com/th-release/go-utils
 
 go 1.21.4
 
