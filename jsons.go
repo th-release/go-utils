@@ -54,3 +54,12 @@ func UpdateJsonFile(filePath string, data interface{}) error {
 
 	return nil
 }
+
+func UpdateJson(data string, input interface{}) (string, error) {
+	inputJsonData, err := json.MarshalIndent(input, "", "  ")
+	if err != nil {
+		return "", err
+	}
+
+	return string(inputJsonData), nil
+}
