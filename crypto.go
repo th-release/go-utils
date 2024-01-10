@@ -3,6 +3,7 @@ package utils
 // go get golang.org/x/crypto/sha3
 
 import (
+	"encoding/base64"
 	"encoding/hex"
 
 	"golang.org/x/crypto/sha3"
@@ -28,4 +29,18 @@ func HashSha3_512(input string) (string, error) {
 	hashString := hex.EncodeToString(hashBytes)
 
 	return hashString, nil
+}
+
+func Base64Encode(input string) string {
+	encoded := base64.StdEncoding.EncodeToString([]byte(input))
+	return encoded
+}
+
+func Base64Decode(input string) (string, error) {
+	decoded, err := base64.StdEncoding.DecodeString(input)
+	if err != nil {
+		return "", err
+	}
+
+	return string(decoded), nil
 }
